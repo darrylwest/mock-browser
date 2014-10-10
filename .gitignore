@@ -1,0 +1,15 @@
+__MAC*
+.DS_Store
+*.tz
+*.gz
+dist/*
+build/*
+.idea
+.settings
+*.bak
+*.swp
+*.log
+node_modules/*
+.sass-cache
+jsdoc/*
+process.pid
