@@ -8,4 +8,4 @@ Installation
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.70</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.10</em></small></p>
