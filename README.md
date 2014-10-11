@@ -1,12 +1,13 @@
 #Mock Browser
 - - -
 
-[![Build Status](https://travis-ci.org/darrylwest/mock-browser.svg?branch=master)](https://travis-ci.org/darrylwest/mock-browser)
-[![Dependency Status](https://david-dm.org/darrylwest/mock-browser.svg)](https://david-dm.org/darrylwest/mock-browser)
+[![NPM version](https://badge.fury.io/js/mock-browser.svg)](http://badge.fury.io/js/mock-browser) [![Build Status](https://travis-ci.org/darrylwest/mock-browser.svg?branch=master)](https://travis-ci.org/darrylwest/mock-browser) [![Dependency Status](https://david-dm.org/darrylwest/mock-browser.svg)](https://david-dm.org/darrylwest/mock-browser)
 
 ## Overview
 
 A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.  A majority of the implementation is from the [jsdom project](https://github.com/tmpvar/jsdom) with enhancements for local and session storage plus some fixes for un-implemented document features (classList).
+
+The mock browser eliminates the need for a headless browser like phantomjs to provide a much faster unit test framework.  It's perfect for browserify projects that run tests prior to compiling the bundle.
 
 ## Installation
 
@@ -130,4 +131,4 @@ All objects are tested using mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.10</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.11</em></small></p>
