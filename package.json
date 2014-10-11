@@ -18,10 +18,10 @@
   ],
   "dependencies": {
     "lodash": "^2.4.1",
-    "jsdom": "^1.0.1",
-    "simple-node-logger": "^0.92.12"
+    "jsdom": "^1.0.1"
   },
   "devDependencies": {
+    "simple-node-logger": "^0.92.12",
     "chai": "~1.8.1",
     "del": "^0.1.3",
     "gulp": "^3.8.8",
