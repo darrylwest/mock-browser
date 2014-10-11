@@ -6,13 +6,15 @@
 
 ## Overview
 
-A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.  The majority of the implementation is from the [jsdom project](https://github.com/tmpvar/jsdom).
+A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.  A majority of the implementation is from the [jsdom project](https://github.com/tmpvar/jsdom) with enhancements for local and session storage plus some fixes for un-implemented document features (classList).
 
 ## Installation
 
 ~~~
     npm install mock-browser --save
 ~~~
+
+If you just use the mock for testing then '--save-dev' is more appropriate.  But, the AbstractBrowser could (should) be used for run time to replace client logic that normally accesses globals provided by the local browser.  This not only enhances testing and mocking but also enables cross-browser workarounds through interception rather than override.
 
 ## Use
 
@@ -34,6 +36,13 @@ The use case is you have a browserify client project and unit tests need to prov
     assert localStorage.getItem('mykey') === 'my value';
 ~~~
 
+### Mock Browser Object Methods
+
+Two convenience methods are added to make it easy to get either a window or dom document mock.
+
+* MockBrowser.createDocument()
+* MockBrowser.createWindow()
+
 ### Abstract Browser
 
 The AbstractBrowser object can be used as an interface for run-time client apps to access browser window related objects.  This approach enables code to be used both in and outside the browser.
@@ -54,12 +63,18 @@ The AbstractBrowser object can be used as an interface for run-time client apps 
 
 ### Abstract Browser API
 
+Instance methods...
+
 * getDocument()
 * getWindow()
 * getLocation()
 * getHistory()
 * getLocalStorage()
 * getSessionStorage()
+
+Object Methods...
+
+* AbstractBrowser.extend(child, options)  <- extend the abstract object
 
 These methods are inherited by MockBrowser.
 

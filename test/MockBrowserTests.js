@@ -13,7 +13,7 @@ describe('MockBrowser', function() {
     'use strict';
 
     describe('#instance', function() {
-        var storage = new MockBrowser(),
+        var browser = new MockBrowser(),
             methods = [
                 'getDocument',
                 'getWindow',
@@ -23,15 +23,18 @@ describe('MockBrowser', function() {
                 'getSessionStorage'
             ];
 
-        it('should create an instance of MockStorage', function() {
-            should.exist( storage );
-            storage.should.be.instanceof( MockBrowser );
+        it('should create an instance of MockBrowser', function() {
+            should.exist( browser );
+            browser.should.be.instanceof( MockBrowser );
         });
 
         it('should have all known methods by size and type', function() {
-            dash.methods( storage ).length.should.equal( methods.length );
+            dash.methods( browser ).length.should.equal( methods.length );
             methods.forEach(function(method) {
-                storage[ method ].should.be.a( 'function' );
+                browser[ method ].should.be.a( 'function' );
+
+                var obj = browser[ method ]();
+                should.exist( obj );
             });
         });
     });
@@ -73,6 +76,28 @@ describe('MockBrowser', function() {
             var obj = browser.getSessionStorage();
 
             should.exist( obj );
+        });
+    });
+
+    describe('createDocument', function() {
+        it('should create a dom document', function() {
+            var doc = MockBrowser.createDocument();
+
+            should.exist( doc );
+            doc.createElement.should.be.a('function');
+        });
+    });
+
+    describe('createWindow', function() {
+        it('should create a browser window', function() {
+            var win = MockBrowser.createWindow();
+
+            should.exist( win );
+            should.exist( win.localStorage );
+            should.exist( win.sessionStorage );
+            should.exist( win.document );
+            should.exist( win.history );
+            should.exist( win.location );
         });
     });
 });

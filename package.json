@@ -12,6 +12,10 @@
   "keywords": [
     "http",
     "browser",
+    "document",
+    "history",
+    "localStorage",
+    "sessionStorage",
     "unittest",
     "bdd",
     "tdd"

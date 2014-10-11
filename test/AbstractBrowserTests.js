@@ -26,16 +26,22 @@ describe('AbstractBrowser', function() {
         return opts;
     };
 
+    var createMethodNames = function() {
+        var methods = [
+            'getDocument',
+            'getWindow',
+            'getHistory',
+            'getLocation',
+            'getLocalStorage',
+            'getSessionStorage'
+        ];
+
+        return methods;
+    };
+
     describe('#instance', function() {
         var browser = new AbstractBrowser( createOptions() ),
-            methods = [
-                'getDocument',
-                'getWindow',
-                'getHistory',
-                'getLocation',
-                'getLocalStorage',
-                'getSessionStorage'
-            ];
+            methods = createMethodNames();
 
         it('should create an instance of Browser', function() {
             should.exist( browser );
@@ -46,6 +52,9 @@ describe('AbstractBrowser', function() {
             dash.methods( browser ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 browser[ method ].should.be.a( 'function' );
+
+                var obj = browser[ method ]();
+                should.exist( obj );
             });
         });
     });
@@ -87,6 +96,35 @@ describe('AbstractBrowser', function() {
             var obj = browser.getSessionStorage();
 
             should.exist( obj );
+        });
+    });
+
+    describe('extends', function() {
+        var Browser = function(options) {
+            var browser = this;
+
+            AbstractBrowser.extend( this, options );
+
+            this.createLogger = MockLogger.createLogger;
+        };
+
+        it('should create an extended version of abstract browser', function() {
+            var browser = new Browser( createOptions() ),
+                methods = createMethodNames();
+
+            // add in the extra method
+            methods.push( 'createLogger' );
+
+            should.exist( browser );
+            browser.should.be.instanceof( Browser );
+
+            dash.methods( browser ).length.should.equal( methods.length );
+            methods.forEach(function(method) {
+                browser[ method ].should.be.a( 'function' );
+
+                var obj = browser[ method ]('anything');
+                should.exist( obj );
+            });
         });
     });
 });
