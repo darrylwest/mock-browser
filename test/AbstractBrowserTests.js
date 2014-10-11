@@ -1,5 +1,5 @@
 /**
- * @class BrowserTests
+ * @class AbstractBrowserTests
  *
  * @author: darryl.west@roundpeg.com
  * @created: 10/10/14 9:32 AM
@@ -8,9 +8,9 @@ var should = require('chai').should(),
     dash = require('lodash' ),
     jsdom = require('jsdom' ).jsdom,
     MockLogger = require('simple-node-logger' ).mocks.MockLogger,
-    Browser = require('../lib/Browser');
+    AbstractBrowser = require('../lib/AbstractBrowser');
 
-describe('Browser', function() {
+describe('AbstractBrowser', function() {
     'use strict';
 
     var createOptions = function() {
@@ -24,17 +24,19 @@ describe('Browser', function() {
     };
 
     describe('#instance', function() {
-        var browser = new Browser( createOptions() ),
+        var browser = new AbstractBrowser( createOptions() ),
             methods = [
                 'getDocument',
                 'getWindow',
                 'getHistory',
-                'getLocation'
+                'getLocation',
+                'getLocalStorage',
+                'getSessionStorage'
             ];
 
         it('should create an instance of Browser', function() {
             should.exist( browser );
-            browser.should.be.instanceof( Browser );
+            browser.should.be.instanceof( AbstractBrowser );
         });
 
         it('should have all known methods by size and type', function() {

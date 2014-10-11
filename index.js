@@ -6,10 +6,11 @@
  */
 module.exports = {
     delegates:{
-        Browser: require( './lib/Browser' )
+        AbstractBrowser: require( './lib/AbstractBrowser' )
     },
     mocks: {
-        MockBrowser: require( './lib/MockBrowser' )
+        MockBrowser: require( './lib/MockBrowser' ),
+        MockStorage: require( './lib/MockStorage' )
     }
 };
 
