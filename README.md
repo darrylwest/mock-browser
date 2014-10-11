@@ -118,6 +118,10 @@ This object may also be used standalone when you just need to mock out either lo
     assert storage.length === 1;
 ~~~
 
+## Examples
+
+_Coming soon..._
+
 ## Tests
 
 All objects are tested using mocha.  You can run tests by doing this:
@@ -131,4 +135,4 @@ All objects are tested using mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.11</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.12</em></small></p>
