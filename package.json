@@ -1,7 +1,7 @@
 {
   "name": "web-app-runner",
   "version": "0.90.10",
-  "description": "A simple HTTP application server that accepts or rejects connections based on authenticated attributes including ip, user agent, etc.  The server can be used stand alone or as middleware for connect or express.",
+  "description": "A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.",
   "repository": {
     "type": "git",
     "url": "https://github.com/darrylwest/mock-browser.git"

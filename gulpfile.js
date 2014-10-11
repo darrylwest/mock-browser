@@ -28,14 +28,14 @@ var paths = {
 };
 
 gulp.task('jshint', function() {
-    gulp.src([ paths.src, paths.tests ] )
+    gulp.src([ paths.src, paths.tests ], { read:false } )
         .pipe( plumber({ errorHandler:errorHandler }) )
         .pipe( jshint() )
         .pipe( jshint.reporter('jshint-stylish') );
 });
 
 gulp.task('mocha', function() {
-    gulp.src( paths.tests )
+    gulp.src( paths.tests, { read:false } )
         .pipe( plumber({ errorHandler:errorHandler }) )
         .pipe( mocha({ reporter:'spec' }) );
 });

@@ -12,16 +12,8 @@ var should = require('chai').should(),
 describe('MockBrowser', function() {
     'use strict';
 
-    var createOptions = function() {
-        var opts = {};
-
-        opts.log = MockLogger.createLogger('MockBrowser');
-
-        return opts;
-    };
-
     describe('#instance', function() {
-        var storage = new MockBrowser( createOptions() ),
+        var storage = new MockBrowser(),
             methods = [
                 'getDocument',
                 'getWindow',
@@ -41,6 +33,46 @@ describe('MockBrowser', function() {
             methods.forEach(function(method) {
                 storage[ method ].should.be.a( 'function' );
             });
+        });
+    });
+
+    describe('#api', function() {
+        var browser = new MockBrowser();
+
+        it('should return a valid window object', function() {
+            var obj = browser.getWindow();
+
+            should.exist( obj );
+        });
+
+        it('should return a valid document object', function() {
+            var obj = browser.getDocument();
+
+            should.exist( obj );
+        });
+
+        it('should return a valid history object', function() {
+            var obj = browser.getHistory();
+
+            should.exist( obj );
+        });
+
+        it('should return a valid location object', function() {
+            var obj = browser.getLocation();
+
+            should.exist( obj );
+        });
+
+        it('should return a valid local storage object', function() {
+            var obj = browser.getLocalStorage();
+
+            should.exist( obj );
+        });
+
+        it('should return a valid session storage object', function() {
+            var obj = browser.getSessionStorage();
+
+            should.exist( obj );
         });
     });
 });
