@@ -26,12 +26,12 @@ The use case is you have a browserify client project and unit tests need to prov
 ~~~
 	var MockBrowser = require('mock-browser').mocks.MockBrowser;
 	var mock = new MockBrowser();
-    
+
     // and in the run-code
-    
+
     var doc = mock.getDocument();
     var div = doc.createElement('div');
-    
+
     var localStorage = doc.getLocalStorage();
     localStorage.setItem('mykey', 'my value');
     assert localStorage.getItem('mykey') === 'my value';
@@ -50,14 +50,14 @@ The AbstractBrowser object can be used as an interface for run-time client apps 
 
 ~~~
 	var AbstractBrowser = require('mock-browser').delegates.AbstractBrowser;
-    
+
 	// configure in some factory
 	var opts = {};
     opts.window = (typeof window === 'object') ? window : MockBrowser.createWindow();
-    
+
     // create the browser object with a real window in brwosers and mock when not in browser
 	var browser = new AbstractBrowser( opts );
-    
+
     var doc = browser.getDocument();
     var element = doc.getElementById('my-dom-element');
 ~~~
@@ -85,15 +85,15 @@ For run-time use you can extend AbstractBrowser to inherit the API.  This enable
 
 ~~~
 	var AbstractBrowser = require('mock-browser').delegates.AbstractBrowser;
-    
+
     var MyBrowser = function(options) {
     	var browser = this,
         	builder = options.componentBuilder;
-        
+
         // inherit getWindow(), getDocument(), getLocation(), getHistory(),
         // getLocalStorage(), getSessionStorage()
         AbstractBrowser.extend( this, options );
-        
+
         // my browser API extension...
         this.getComponentBuilder = function() {
         	return builder;
@@ -109,12 +109,12 @@ This object may also be used standalone when you just need to mock out either lo
 
 ~~~
 	var MockStorage = require('mock-browser').mocks.MockStorage;
-    
+
     var storage = new MockStorage();
-    
+
     storage.setItem( 'mykey', 'my string value' );
     assert storage.getItem( 'mykey' ) === 'my string value';
-    
+
     assert storage.length === 1;
 ~~~
 
@@ -124,19 +124,19 @@ _Coming soon..._
 
 ## Tests
 
-All objects are tested using mocha.  You can run tests by doing this:
+All objects are tested using gulp and mocha.  You can run tests by doing this:
 
 ~~~
 	make test
-    
+
     // or
-    
+
     gulp test
-    
+
     // or
-    
+
     npm test
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.13</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.14</em></small></p>
