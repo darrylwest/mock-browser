@@ -1,5 +1,5 @@
 {
-  "name": "web-app-runner",
+  "name": "mock-browser",
   "version": "0.90.10",
   "description": "A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.",
   "repository": {
