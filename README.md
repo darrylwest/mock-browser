@@ -53,7 +53,14 @@ The AbstractBrowser object can be used as an interface for run-time client apps 
 
 	// configure in some factory
 	var opts = {};
-    opts.window = (typeof window === 'object') ? window : MockBrowser.createWindow();
+    
+    if (typeof window === 'object') {
+    	// assign the browser window if it exists
+    	opts.window = window;
+    } else {
+    	// create a mock window object for testing
+    	opts.window =  MockBrowser.createWindow();
+    }
 
     // create the browser object with a real window in brwosers and mock when not in browser
 	var browser = new AbstractBrowser( opts );
@@ -139,4 +146,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.15</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.16</em></small></p>
