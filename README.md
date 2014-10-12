@@ -21,7 +21,7 @@ If you just use the mock for testing then '--save-dev' is more appropriate.  But
 
 ### Mock Browser
 
-The use case is you have a browserify client project and unit tests need to provide a mechanism for client modules to access the window, document, location, etc.  The best way to simulate this is to use a proxy wall between the normally global browser objects a require the application to get instances of window, document, etc.  That way you can supply a mock for all of these objects with a common interface (AbstractBrowser).  It looks like this...
+The typical use case is a browserify project with unit tests that need to provide access to browser globals like window, document, location, etc.  The best way to simulate this is to use a proxy wall between the normally global browser objects a require the application to get instances of window, document, etc.  That way you can supply a mock for all of these objects with a common interface (AbstractBrowser).  It looks like this...
 
 ~~~
 	var MockBrowser = require('mock-browser').mocks.MockBrowser;
@@ -146,4 +146,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.16</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.17</em></small></p>
