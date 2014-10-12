@@ -38,7 +38,7 @@ The typical use case is a browserify project with unit tests that need to provid
 
 ### Mock Browser Object Methods
 
-Two convenience methods are added to make it easy to get either a window or dom document mock.
+Two convenience methods are added to make it easy to get either a window or DOM document mock.
 
 * MockBrowser.createDocument()
 * MockBrowser.createWindow()
@@ -52,7 +52,7 @@ The AbstractBrowser object can be used as an interface for run-time client apps 
 
 	// configure in some factory
 	var opts = {};
-    
+
     if (typeof window === 'object') {
     	// assign the browser window if it exists
     	opts.window = window;
@@ -83,7 +83,7 @@ Object Methods...
 
 * AbstractBrowser.extend(child, options)  <- extend the abstract object
 
-These methods are inherited by MockBrowser.
+These methods are inherited by MockBrowser to provide a consistent interface between test and run-time environments.
 
 ### Extending AbstractBrowser
 
@@ -145,4 +145,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.19</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.20</em></small></p>
