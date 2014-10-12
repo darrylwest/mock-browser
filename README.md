@@ -27,14 +27,13 @@ The typical use case is a browserify project with unit tests that need to provid
 	var MockBrowser = require('mock-browser').mocks.MockBrowser;
 	var mock = new MockBrowser();
 
-    // and in the run-code
+    // and in the run-code inside some object
+    var doc = mock.getDocument(),
+    	div = doc.createElement('div');
 
-    var doc = mock.getDocument();
-    var div = doc.createElement('div');
-
-    var localStorage = doc.getLocalStorage();
-    localStorage.setItem('mykey', 'my value');
-    assert localStorage.getItem('mykey') === 'my value';
+    var storage = mock.getLocalStorage();
+    storage.setItem('mykey', 'my value');
+    assert storage.getItem('mykey') === 'my value';
 ~~~
 
 ### Mock Browser Object Methods
@@ -146,4 +145,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 ~~~
 
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.18</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.19</em></small></p>
