@@ -88,6 +88,35 @@ describe('MockBrowser', function() {
         });
     });
 
+    describe('#classList', function() {
+        var browser = new MockBrowser(),
+            document = browser.getDocument();
+
+        it('should add a single class name to the class list', function() {
+            var element = document.createElement('div' ),
+                cname = 'enabled';
+
+            element.className.should.equal( '' );
+            element.classList.add( cname );
+            element.className.should.equal( cname );
+
+            // even when an attempt is made to add this multiple times, it's only added once
+            element.classList.add( cname );
+            element.className.should.equal( cname );
+        });
+
+        it('should remove the class name from the class list', function() {
+            var element = document.createElement('div' ),
+                cname = 'disabled';
+
+            element.className = [ cname, 'flarb', cname, 'mashooka' ].join(' ');
+            element.classList.contains( cname ).should.equal( true );
+            element.classList.remove( cname );
+
+            element.classList.contains( cname ).should.equal( false );
+        });
+    });
+
     describe('createWindow', function() {
         it('should create a browser window', function() {
             var win = MockBrowser.createWindow();
