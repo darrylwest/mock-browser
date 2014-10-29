@@ -126,7 +126,7 @@ This object may also be used standalone when you just need to mock out either lo
 
 ## Examples
 
-_Coming soon..._
+There is an [open source project](https://github.com/darrylwest/enigma-keyword-client)  that uses not only MockBrowser for tests but AbstractBrowser as a foundation for the client's _browser_ object.
 
 ## Tests
 
@@ -146,4 +146,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 
 You can find more info for use and rational in [this post](http://blog.raincitysoftware.com/Mock-Browser-for-Client-Testing-in-Node/)...
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.23</em></small></p>
+<p><small><em>copyright © 2014 rain city software | version 0.90.24</em></small></p>

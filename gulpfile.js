@@ -42,7 +42,7 @@ gulp.task('mocha', function() {
 
 gulp.task('test', [ 'mocha', 'jshint' ] );
 
-gulp.task('watch', function () {
+gulp.task('watch', [ 'test' ], function () {
     gulp.watch([ paths.src, paths.tests ], [ 'test' ]);
 });
 
