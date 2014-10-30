@@ -115,6 +115,17 @@ describe('MockBrowser', function() {
 
             element.classList.contains( cname ).should.equal( false );
         });
+
+        it('should toggle class on and off', function() {
+            var element = document.createElement('div' ),
+                cname = 'flarb';
+
+            element.className.should.equal( '' );
+            element.classList.toggle( cname );
+            element.className.should.equal( cname );
+            element.classList.toggle( cname );
+            element.className.should.equal( '' );
+        });
     });
 
     describe('createWindow', function() {
