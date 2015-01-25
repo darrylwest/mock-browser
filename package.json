@@ -1,6 +1,6 @@
 {
   "name": "mock-browser",
-  "version": "0.90.27",
+  "version": "0.90.28",
   "description": "A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.",
   "repository": {
     "type": "git",
@@ -21,8 +21,8 @@
     "tdd"
   ],
   "dependencies": {
-    "lodash": "^2.4.1",
-    "jsdom": "^1.0.3"
+    "jsdom": "^3.0.2",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "chai": "^1.9.2",

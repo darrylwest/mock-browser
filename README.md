@@ -146,4 +146,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 
 You can find more info for use and rational in [this post](http://blog.raincitysoftware.com/Mock-Browser-for-Client-Testing-in-Node/)...
 - - -
-<p><small><em>copyright © 2014 rain city software | version 0.90.27</em></small></p>
+<p><small><em>copyright © 2014-2015 rain city software | version 0.90.28</em></small></p>
