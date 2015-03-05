@@ -6,7 +6,7 @@
  */
 var should = require('chai').should(),
     dash = require('lodash' ),
-    jsdom = require('jsdom' ).jsdom,
+    jsdom = require('node-jsdom' ).jsdom,
     MockLogger = require('simple-node-logger' ).mocks.MockLogger,
     MockStorage = require('../lib/MockStorage' ),
     AbstractBrowser = require('../lib/AbstractBrowser');
