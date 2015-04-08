@@ -32,6 +32,7 @@ describe('AbstractBrowser', function() {
             'getWindow',
             'getHistory',
             'getLocation',
+            'getNavigator',
             'getLocalStorage',
             'getSessionStorage'
         ];

@@ -75,6 +75,7 @@ Instance methods...
 * getDocument()
 * getWindow()
 * getLocation()
+* getNavigator()
 * getHistory()
 * getLocalStorage()
 * getSessionStorage()
@@ -97,7 +98,7 @@ For run-time use you can extend AbstractBrowser to inherit the API.  This enable
         	builder = options.componentBuilder;
 
         // inherit getWindow(), getDocument(), getLocation(), getHistory(),
-        // getLocalStorage(), getSessionStorage()
+        // getLocalStorage(), getSessionStorage(), getNavigator()
         AbstractBrowser.extend( this, options );
 
         // my browser API extension...
@@ -146,4 +147,4 @@ All objects are tested using gulp and mocha.  You can run tests by doing this:
 
 You can find more info for use and rational in [this post](http://blog.raincitysoftware.com/Mock-Browser-for-Client-Testing-in-Node/)...
 - - -
-<p><small><em>copyright © 2014-2015 rain city software | version 0.90.31</em></small></p>
+<p><small><em>copyright © 2014-2015 rain city software | version 0.90.33</em></small></p>

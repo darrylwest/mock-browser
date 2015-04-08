@@ -19,6 +19,7 @@ describe('MockBrowser', function() {
                 'getWindow',
                 'getHistory',
                 'getLocation',
+                'getNavigator',
                 'getLocalStorage',
                 'getSessionStorage'
             ];
@@ -138,6 +139,8 @@ describe('MockBrowser', function() {
             should.exist( win.document );
             should.exist( win.history );
             should.exist( win.location );
+            should.exist( win.navigator );
+
         });
     });
 });
