@@ -29,7 +29,7 @@ describe('MockStorage', function() {
         });
 
         it('should have all known methods by size and type', function() {
-            dash.methods( storage ).length.should.equal( methods.length );
+            dash.functionsIn( storage ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 storage[ method ].should.be.a( 'function' );
             });

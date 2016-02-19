@@ -30,7 +30,7 @@ describe('MockBrowser', function() {
         });
 
         it('should have all known methods by size and type', function() {
-            dash.methods( browser ).length.should.equal( methods.length );
+            dash.functionsIn( browser ).length.should.equal( methods.length );
             methods.forEach(function(method) {
                 browser[ method ].should.be.a( 'function' );
 
