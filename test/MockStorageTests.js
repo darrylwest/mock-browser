@@ -78,7 +78,7 @@ describe('MockStorage', function() {
     describe('clear', function() {
         var storage = new MockStorage();
 
-        it('should clear al data', function() {
+        it('should clear all data', function() {
             for (var i = 0; i < 10; i++) {
                 storage.setItem( "key:" + i, 'value: ' + new Date().toJSON() );
             }
@@ -87,5 +87,25 @@ describe('MockStorage', function() {
             storage.clear();
             storage.length.should.equal( 0 );
         });
+    });
+
+    describe('key', function() {
+      var storage = new MockStorage();
+
+      it('should return the keys in the order they were inserted', function() {
+        var key0 = 'mykey',
+            value0 = 'my value',
+            key1 = 'key2',
+            value1 = 'value2';
+
+        storage.setItem( key0, value0 );
+        storage.setItem( key1, value1 );
+
+        storage.key( 0 ).should.equal( 'mykey' );
+        storage.key( 1 ).should.equal( 'key2' );
+
+        storage.setItem( key0, value1 );
+        storage.key( 0 ).should.equal( 'mykey' );
+      });
     });
 });
