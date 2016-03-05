@@ -19,6 +19,7 @@ describe('MockStorage', function() {
                 'setItem',
                 'clear',
                 'key',
+                'removeItem',
                 '__protected'
             ];
 
@@ -89,10 +90,31 @@ describe('MockStorage', function() {
         });
     });
 
-    describe('key', function() {
+    describe('removeItem', function() {
       var storage = new MockStorage();
 
-      it('should return the keys in the order they were inserted', function() {
+      it('should remove key from localStorage', function() {
+        var key0 = 'key0',
+            val0 = 'val0';
+        storage.setItem( key0, val0 );
+        storage.removeItem( key0 );
+
+        should.equal( storage.getItem( key0 ), undefined );
+      });
+    });
+
+    describe('key', function() {
+      var storage;
+
+      beforeEach(function() {
+        storage = new MockStorage();
+      });
+
+      afterEach(function() {
+        storage = null;
+      });
+
+      it('should return keys for an index', function() {
         var key0 = 'mykey',
             value0 = 'my value',
             key1 = 'key2',
@@ -106,6 +128,25 @@ describe('MockStorage', function() {
 
         storage.setItem( key0, value1 );
         storage.key( 0 ).should.equal( 'mykey' );
+      });
+
+      it('should return null on non-existing key', function() {
+        should.equal( storage.key( 0 ), null );
+      });
+
+      it('should clear keys on removeItem', function() {
+        var key0 = 'mykey',
+            value0 = 'my value',
+            key1 = 'key2',
+            value1 = 'value2';
+
+            storage.setItem( key0, value0 );
+            storage.setItem( key1, value1 );
+
+            storage.removeItem( key0 );
+
+            storage.key( 0 ).should.equal( 'key2' );
+            should.equal( storage.key( 1 ), null );
       });
     });
 });
