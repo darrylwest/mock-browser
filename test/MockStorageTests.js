@@ -19,6 +19,7 @@ describe('MockStorage', function() {
                 'setItem',
                 'clear',
                 'key',
+                'removeItem',
                 '__protected'
             ];
 
@@ -78,7 +79,7 @@ describe('MockStorage', function() {
     describe('clear', function() {
         var storage = new MockStorage();
 
-        it('should clear al data', function() {
+        it('should clear all data', function() {
             for (var i = 0; i < 10; i++) {
                 storage.setItem( "key:" + i, 'value: ' + new Date().toJSON() );
             }
@@ -86,6 +87,72 @@ describe('MockStorage', function() {
             storage.length.should.equal( 10 );
             storage.clear();
             storage.length.should.equal( 0 );
+
+            for (var j = 0; j < 10; j++) {
+                should.equal( storage.key(j), null );
+            }
+
         });
+    });
+
+    describe('removeItem', function() {
+      var storage = new MockStorage();
+
+      it('should remove key from localStorage', function() {
+          var key0 = 'key0',
+              val0 = 'val0';
+          storage.setItem( key0, val0 );
+          storage.removeItem( key0 );
+
+          should.equal( storage.getItem( key0 ), null );
+          storage.length.should.equal( 0 );
+      });
+    });
+
+    describe('key', function() {
+      var storage;
+
+      beforeEach(function() {
+          storage = new MockStorage();
+      });
+
+      afterEach(function() {
+          storage = null;
+      });
+
+      it('should return keys for an index', function() {
+          var key0 = 'mykey',
+              value0 = 'my value',
+              key1 = 'key2',
+              value1 = 'value2';
+
+          storage.setItem( key0, value0 );
+          storage.setItem( key1, value1 );
+
+          storage.key( 0 ).should.equal( 'mykey' );
+          storage.key( 1 ).should.equal( 'key2' );
+
+          storage.setItem( key0, value1 );
+          storage.key( 0 ).should.equal( 'mykey' );
+      });
+
+      it('should return null on non-existing key', function() {
+          should.equal( storage.key( 0 ), null );
+      });
+
+      it('should clear keys on removeItem', function() {
+          var key0 = 'mykey',
+              value0 = 'my value',
+              key1 = 'key2',
+              value1 = 'value2';
+
+          storage.setItem( key0, value0 );
+          storage.setItem( key1, value1 );
+
+          storage.removeItem( key0 );
+
+          storage.key( 0 ).should.equal( 'key2' );
+          should.equal( storage.key( 1 ), null );
+      });
     });
 });
