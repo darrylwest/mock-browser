@@ -38,6 +38,14 @@ describe('MockBrowser', function() {
                 should.exist( obj );
             });
         });
+
+        it('should create a MockBrowser using user supplied window/document', function () {
+            var opts = { window: { document: 'would be a jsdom' } },
+                loadedBrowser = new MockBrowser(opts);
+
+            loadedBrowser.getWindow().should.be.equal(opts.window);
+            loadedBrowser.getDocument().should.be.equal('would be a jsdom');
+        })
     });
 
     describe('#api', function() {
