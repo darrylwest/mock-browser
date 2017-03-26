@@ -7,11 +7,11 @@ npm:
 
 jshint:
 	@( [ -d node_modules ] || make npm )
-	@( gulp jshint )
+	@( node_modules/.bin/gulp jshint )
 
 test:
 	@( [ -d node_modules ] || make npm )
-	@( gulp test )
+	@( node_modules/.bin/gulp test )
 
 watch:
 	@( gulp watch )

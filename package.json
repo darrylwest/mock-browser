@@ -1,13 +1,13 @@
 {
   "name": "mock-browser",
-  "version": "0.92.12",
+  "version": "0.92.14",
   "description": "A mock browser with window, document, location, navigation, local and session storage to use for client side code tests in a node environment.",
   "repository": {
     "type": "git",
     "url": "https://github.com/darrylwest/mock-browser.git"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "node_modules/.bin/gulp test"
   },
   "keywords": [
     "http",
