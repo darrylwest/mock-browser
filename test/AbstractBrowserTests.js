@@ -6,7 +6,7 @@
  */
 var should = require('chai').should(),
     dash = require('lodash' ),
-    jsdom = require('jsdom' ).jsdom,
+    JSDOM = require('jsdom' ).JSDOM,
     MockLogger = require('simple-node-logger' ).mocks.MockLogger,
     MockStorage = require('../lib/MockStorage' ),
     AbstractBrowser = require('../lib/AbstractBrowser');
@@ -16,8 +16,8 @@ describe('AbstractBrowser', function() {
 
     var createOptions = function() {
         var opts = {},
-            doc = jsdom('<div />' ),
-            win = doc.defaultView;
+            doc = new JSDOM('<div />', {url: "http://localhost"}),
+            win = doc.window;
 
         opts.window = win;
         opts.localStorage = new MockStorage();
